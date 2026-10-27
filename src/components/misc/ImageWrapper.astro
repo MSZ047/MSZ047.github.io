@@ -29,9 +29,15 @@ const isPublic = src.startsWith("/");
 // biome-ignore lint/suspicious/noImplicitAnyLet: <check later>
 let img;
 if (isLocal) {
-	const files = import.meta.glob<ImageMetadata>("../../**", {
-		import: "default",
-	});
+	// NOTE: this glob is also what pulls Svelte component styles into the build,
+	// because `client:only` components don't get their <style> collected otherwise.
+	// Keep the `.svelte` pattern when changing this.
+	const files = import.meta.glob<ImageMetadata>(
+		"../../**/*.{avif,gif,jpeg,jpg,png,svg,webp,svelte}",
+		{
+			import: "default",
+		},
+	);
 	let normalizedPath = path
 		.normalize(path.join("../../", basePath, src))
 		.replace(/\\/g, "/");
