@@ -8,5 +8,3 @@ Fedora是我的主力系统，平时喜欢折腾他，目前使用的是niri+noc
 
 比如Eason,yoasobi,flawed mangoes，beyond
 ，AGA
-
-

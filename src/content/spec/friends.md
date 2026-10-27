@@ -1,7 +1,6 @@
 ---
-title: 友情链接
----
 
+## title: 友情链接
 
 https://aurorp1g.github.io
 
