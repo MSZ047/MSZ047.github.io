@@ -15,6 +15,9 @@ jobs:
       - name: Setup Biome
         uses: biomejs/setup-biome@f382a98e582959e6aaac8e5f8b17b31749018780 # v2.5.0
         with:
-          version: latest
+          # 不写 version: latest —— 从 pnpm-lock.yaml 读 package.json 里钉的 Biome 版本，
+          # 保证 CI 与本地 `pnpm lint` 用同一版本（2026-11-17: latest=2.6.8 改了 markdown
+          # 空行规则，导致 4 个 md 报 "File content differs from formatting output"）
+          working-dir: .
       - name: Run Biome
         run: biome ci ./src --reporter=github
